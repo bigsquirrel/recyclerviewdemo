@@ -43,7 +43,7 @@ public class CustomItemDecoration extends ItemDecoration {
         outRect.left = spacePx >> 1;
         outRect.right = spacePx >> 1;
 
-        int marginTop = (int) DisplayUtil.dp2px(view.getContext(), marginParentTop);
+        outRect.top = (int) DisplayUtil.dp2px(view.getContext(), marginParentTop);
         outRect.bottom = (int) DisplayUtil.dp2px(view.getContext(), marginParentBottom);
 
         // Add top margin only for the first item to avoid double space between items
@@ -53,7 +53,7 @@ public class CustomItemDecoration extends ItemDecoration {
             outRect.right = (int) DisplayUtil.dp2px(view.getContext(), marginParentRight);
         }
         // 设定卡片距离顶端的间距
-        outRect.top = parent.getHeight() - view.getMeasuredHeight() - marginTop - outRect.bottom;
+//        outRect.top = parent.getHeight() - view.getMeasuredHeight() - marginTop - outRect.bottom;
 
         Log.e("RVDemo", "getItemOffsets, view: " + view.hashCode() + ", height: " + view.getMeasuredHeight()
                 + ", parent: " + parent.getHeight());

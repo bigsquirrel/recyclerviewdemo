@@ -3,6 +3,9 @@ package com.xgfe.android.recyclerviewdemo;
 import android.support.annotation.NonNull;
 import android.support.v7.widget.RecyclerView;
 import android.text.TextUtils;
+import android.util.Log;
+import android.view.MotionEvent;
+import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
 
@@ -48,6 +51,14 @@ public class CustomAdapter extends RecyclerView.Adapter<CustomAdapter.CustomView
             super(recyclerView, R.layout.adapter_textview);
             textView = itemView.findViewById(R.id.textview);
             itemView.setElevation(DisplayUtil.dp2px(itemView.getContext(), 5));
+            itemView.setOnTouchListener(new View.OnTouchListener() {
+                @Override
+                public boolean onTouch(View v, MotionEvent event) {
+                    Log.e("RVDemo", "itemView onTouch, " + event.toString());
+
+                    return false;
+                }
+            });
         }
 
         private void bindData(String str) {
