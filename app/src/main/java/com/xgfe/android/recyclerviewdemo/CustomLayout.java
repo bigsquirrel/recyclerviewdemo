@@ -6,6 +6,8 @@ import android.util.Log;
 import android.view.MotionEvent;
 import android.widget.RelativeLayout;
 
+import com.amap.api.maps2d.MapView;
+
 /**
  * Created by ivanchou on 2019/1/13.
  */
@@ -30,9 +32,21 @@ public class CustomLayout extends RelativeLayout {
         return super.dispatchTouchEvent(ev);
     }
 
+
+    @Override
+    public boolean onInterceptTouchEvent(MotionEvent ev) {
+        return true;
+    }
+
     @Override
     public boolean onTouchEvent(MotionEvent event) {
         Log.e("RVDemo", "CustomLayout onTouchEvent, " + event.toString());
+        for (int i = 0; i < getChildCount(); i++) {
+            if (getChildAt(i) instanceof MapView) {
+                MapView mapView = (MapView) getChildAt(i);
+                return mapView.dispatchTouchEvent(event);
+            }
+        }
         return super.onTouchEvent(event);
     }
 }

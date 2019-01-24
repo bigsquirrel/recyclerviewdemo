@@ -32,9 +32,18 @@ public class CustomRecyclerView extends RecyclerView {
     }
 
     @Override
+    public boolean onInterceptTouchEvent(MotionEvent e) {
+        Log.e("RVDemo", "CustomRecyclerView onInterceptTouchEvent, " + e.toString());
+
+        return true;
+    }
+
+    @Override
     public boolean onTouchEvent(MotionEvent e) {
         Log.e("RVDemo", "CustomRecyclerView onTouchEvent, " + e.toString());
 
         return super.onTouchEvent(e);
     }
+
+
 }

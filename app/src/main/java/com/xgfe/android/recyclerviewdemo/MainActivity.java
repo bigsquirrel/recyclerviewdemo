@@ -19,7 +19,7 @@ public class MainActivity extends AppCompatActivity {
 
     private RecyclerView recyclerView;
     private boolean checked;
-    private MapView mapView;
+    private CustomMapView mapView;
 
     private CustomAdapter adapter = new CustomAdapter();
 
